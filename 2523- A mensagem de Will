@@ -1,0 +1,24 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	char l[26];
+	int i,n1,n,j;
+	for(j=1;j<=26;j++)
+	{
+	    cin>>l[j];
+	}
+	cin>>n;
+	for(i=1;i<=n;i++)
+		{
+			cin>>n1;
+			cout<<l[n1];
+		}
+		cout<<l[n1];
+	
+
+
+    return 0;
+}
