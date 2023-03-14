@@ -1,0 +1,57 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int da,db,i,j;
+    
+    cin>>da;
+    while(da>2)
+    {
+		cin>>db;
+		double *pa=new double[da];
+		double *pb=new double[db];
+		double *pc=new double[da+db];
+		cout<<"Digite os valores de A:\n";
+		for(int i=0;i<da;i++)
+    {
+        cin>>pa[i];
+        
+    }
+    cout<<"Digite os valores de B:\n";
+    for(j=0;j<db;j++)
+    {
+        cin>>pb[j];
+    }
+    cout<<"Vetor de A: ";
+    for(i=0;i<da;i++)
+    {
+		cout<<pa[i]<<" "<<endl;
+	}
+	cout<<"Vetor de B: ";
+	for(i=0;i<db;i++)
+	{
+		cout<<pb[i]<<" "<<endl;
+	}
+    if (da==db)
+    {
+		for(int k=0;k<da;k++){
+			pc[k]=pa[k]+pb[k];
+		}
+		cout<<"Vetor de c: ";
+		for(i=0;i<da;i++)
+		{
+			cout<<pc[i]<<" "<<endl;
+		}
+	}
+	
+	delete []pa;
+	delete []pb;
+	delete []pc;
+	cin>>da;	
+}
+    return 0;
+   
+	
+}
