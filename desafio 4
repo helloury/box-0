@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int mesa,NL,N,L;
+do{
+        cout<<"-----------Reservas de Mesas---------------------------\n";
+        cout<<"Numero de Mesas à serem reservadas: ";
+        cin>>mesa;
+        cout<<"Numero da mesa : ";
+        cin>>N;
+        cout<<"Quantidade de lugares para reservar na mesa: ";
+        cin>>L;
+    if(mesa>=2 and mesa<=200)
+    {
+        double *mptr=new double[mesa];
+        for(int i=1;i<=mesa;i++)
+        { 
+            mptr[i]=6;
+        }
+        NL=mptr[N]-L;
+           if(NL<=0)
+            {
+                cout<<"Não há mais vagas dísponivel nesta mesa.\n";
+            }
+            else
+            {
+                cout<<"Reserva realizada com sucesso. \n";
+            }
+    }
+    cout<<"---------------Digite 0 para encerrar ou 1 para continuar-----------\n";
+    cin>>mesa;
+}
+    while(mesa==1);
+    return 0;
+}
