@@ -52,11 +52,20 @@ int main()
             cin>>G>>D;
             gu=g-cont;
             da=d-cont;
-            if(g==d)
+            if(gu<da)
             {
-                cout<<"empate";
+                cout<<"Gu ganhou";
             }
-            if(g>)
+            else
+               if(gu>da)
+               {
+				   cout<<"Da ganhou";
+
+               }
+               else 
+               {
+				   cout<<"Empate";
+			   }
             
         }
         
