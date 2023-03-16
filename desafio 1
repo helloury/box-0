@@ -1,0 +1,29 @@
+#include <iostream> 
+
+  
+
+using namespace std; 
+
+int main() 
+
+{ 
+
+double *aPtr=new int,*bPtr=new int; 
+cout<<"Insira o valor de A: \n"; 
+ cin>>aPtr; 
+ while(aPtr>1)
+ {
+      cout<<"Insira o valor de B: \n"; 
+      cin>>bPtr; 
+     for(int i=0;i<aPtr;i++) 
+     { 
+        cin>>aPtr[i]; 
+     } 
+     for(int j=0;j<bPtr;j++) 
+     { 
+        cin>>bPtr[j]; 
+     } 
+    cin>>aPtr;
+ }
+ 
+    return 0;
