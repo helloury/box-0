@@ -3,12 +3,15 @@
 using namespace std;
 
 int main()
-{
+{  
+    int db,da,i;
     char continuar;
-    
     do
     {
-    cin>>da>>db;
+	cout<<" Tamanho do vetor A: ";
+    cin>>da;
+    cout<<"Tamanho do Vetor B: ";
+    cin>>db;
     double *aptr=new double [da];
     double *bptr=new double [db];
     cout<<"Valores de A: \n";
@@ -23,25 +26,25 @@ int main()
     }
     //uniao
     int tamanU=da+db;
-    int uniao[tamanU];
+    double uniao[tamanU];
     for(int i=0;i<da;i++)
     {
-       uniao[i]=aptr[i];//tamanho do 1 vetor
+       uniao[i]=da[i];//tamanho do 1 vetor
     }
     for(int i=0;i<db;i++)
     {
-        uniao[aptr+i]=bptr[i];//tamanho 1 vetor + o segundo
+        uniao[tamanU+i]=bptr[i];//tamanho 1 vetor + o segundo
     }
     //intersecçao
-    int tamanI=da
-    int inter[]
+    int tamanI=da+db;
+    double inter[tamanI];
     for(i=0;i<da;i++)
     {
-        for(int j=0;i<db;j++)
+        for(int j=0;j=inter;j++)
         {
             if(aptr[i]==bptr[j])
             {
-                inter[i]=
+                inter[j]=aptr[i];
             }
         }
     }
