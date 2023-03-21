@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+
+double lepositivo(string msg)
+{
+	
+double valor;
+do{
+	cout<<msg<<endl;
+	cin>>valor;
+}
+while(valor<=0.0);
+return valor;
+}
+double imc(double p,double a)
+{
+	double res= p/(a*a);
+	return res;
+}
+string faixaderisco(double resIMC)
+{
+	string risco=" ";
+	if(resIMC<20.0)
+	{
+		risco= " abaixo do peso ideal";
+	}
+	else
+	if(resIMC<=20.0)
+	{
+		risco="peso ideal";
+	}
+	else
+	if(resIMC<=30.0)
+	{
+		risco="Excesso de peso";
+	}
+	else
+	if(resIMC<=35.0)
+	{
+		risco="Obesidade";
+	}
+	else
+	{
+		risco=" Obesidade morbida.";
+	}
+return risco;
+}
+ int main()
+ {
+	 double peso,altura,IMC;
+	 string risco,nome;
+	 int na;
+	 
+	 do
+	 {
+		 cout<<"Numero de alunos da turma: ";
+		 cin>>na;
+	 }
+	 while(na<5);
+	 for(int i=0;i<na;i++)
+	 {
+	     cout<<"Nome do aluno"<<i+1<<endl;
+	     cin.ignore();
+	     getline(cin,nome);
+	     peso=lepositivo[0]("digite o peso: ");
+	     altura=lepositivo[1]("Digite a altura: ");
+	     IMC=imc[2](peso,altura);
+	     risco=faixaderisco(IMC);
+	     cout<<nome<<", tem IMC= "<<IMC<<" e Seu IMC indica "<<risco<<endl;
+	 }
+	 return 0;
+ }
