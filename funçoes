@@ -47,8 +47,6 @@ return risco;
 }
  int main()
  {
-	 double peso,altura,IMC;
-	 string risco,nome;
 	 int na;
 	 
 	 do
@@ -57,16 +55,26 @@ return risco;
 		 cin>>na;
 	 }
 	 while(na<5);
+	 
+	  double peso[na];
+	  double altura[na];
+	  double IMC[na];
+	 string risco[na];
+	 string nome[na];
+	 
 	 for(int i=0;i<na;i++)
 	 {
 	     cout<<"Nome do aluno"<<i+1<<endl;
 	     cin.ignore();
-	     getline(cin,nome);
-	     peso=lepositivo("digite o peso: ");
-	     altura=lepositivo("Digite a altura: ");
-	     IMC=imc(peso,altura);
-	     risco=faixaderisco(IMC);
-	     cout<<nome<<", tem IMC= "<<IMC<<" e Seu IMC indica "<<risco<<endl;
+	     getline(cin,nome[i]);
+	     peso[i]=lepositivo("digite o peso: ");
+	     altura[i]=lepositivo("Digite a altura: ");
+	     IMC[i]=imc(peso[i],altura[i]);
+	     risco[i]=faixaderisco(IMC[i]);
 	 }
+	  cout << endl << "Dados dos alunos:" << endl;
+          for (int i = 0; i < num_alunos; i++) {
+          cout << nomes[i]<< ": peso=" << pesos[i] << " altura=" << alturas[i] << " IMC=" << imcs[i] << ", " << riscos[i] << endl;
+    }
 	 return 0;
  }
