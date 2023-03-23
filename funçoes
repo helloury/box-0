@@ -62,9 +62,9 @@ return risco;
 	     cout<<"Nome do aluno"<<i+1<<endl;
 	     cin.ignore();
 	     getline(cin,nome);
-	     peso=lepositivo[0]("digite o peso: ");
-	     altura=lepositivo[1]("Digite a altura: ");
-	     IMC=imc[2](peso,altura);
+	     peso=lepositivo("digite o peso: ");
+	     altura=lepositivo("Digite a altura: ");
+	     IMC=imc(peso,altura);
 	     risco=faixaderisco(IMC);
 	     cout<<nome<<", tem IMC= "<<IMC<<" e Seu IMC indica "<<risco<<endl;
 	 }
