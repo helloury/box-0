@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+struct ponto
+{
+	double x,y; 
+	void obtemponto(string msg);
+	void mostraponto(string msg);
+	double distanciaAB(class ponto &B);
+}
+{
+	void ponto::obtemponto(string msg)
+	{
+	    cout<<"Digite as coordenadas";
+	    cout<<"X e Y do ponto "<<msg<<endl;
+	    cin>>x>>y;
+	}
+	distancia=sqrt(pow(ponto.ax-ponto.bx,2)+pow(ponto.ay-ponto.by,2));
+	void mostrarponto(string msg)
+	{
+		cout<<"Coordenadas do ponto"<<msg<<endl;
+		cout<<x<<" e "<<y<<endl;
+	}
+	float ponto::distaAB(class ponto &B)
+	{
+		float dist,x2,y2;
+		x2=pow(x-B.x,2);
+		y2=pow(y-B.y,2);
+		dist=sqrt(x2+y2);
+		return dist;
+	}
+	int main()
+	{
+		ponto p1,p2;
+		p1.obtemponto("A");
+		p2.obtemponto("B");
+		p1.mostraponto("A");
+		p2.mostraponto("B");
+		float distancia=p1.distaAB(p2);
+		cout<<"Distancia de A ate B é :";
+		cout<<distancia<<endl;
+		return 0;
+	}	
