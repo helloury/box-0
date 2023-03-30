@@ -10,7 +10,8 @@ int main()
 	{
 	    cin>>al[i];
 	}
-	cin>>n;//quantidade de letras;
+	while (cin>>n)//quantidade de letras;
+	{
 	int L[n];
 	for(i=1;i<=n;i++)
 		{
@@ -20,6 +21,6 @@ int main()
 		{
 		    cout<<al[L[i]];
 		}
-
+        }
     return 0;
 }
