@@ -1,28 +1,31 @@
 #include <iostream>
 #include <cmath>
+#include <string>
+
 
 using namespace std;
 
-class ponto
+class Ponto
 {
 	public:
-	float x,y; 
-	void obtemponto(string msg);
-	void mostraponto(string msg);
-	float distaAB(class ponto &B);
+	double x,y; 
+	private:
+	void obtemPonto(string msg);
+	void mostraPonto(string msg);
+	float distaAB(class Ponto &B);
 };
-	void ponto::obtemponto(string msg)
+	void Ponto::obtemPonto(string msg)
 	{
 	    cout<<"Digite as coordenadas";
 	    cout<<"X e Y do ponto "<<msg<<endl;
 	    cin>>x>>y;
 	}
-	void mostrarponto(string msg)
+	void Ponto::mostraPonto(string msg)
 	{
 		cout<<"Coordenadas do ponto"<<msg<<endl;
 		cout<<x<<" e "<<y<<endl;
 	}
-	float ponto::distaAB(class ponto &B)
+	float Ponto::distaAB(class Ponto &B)
 	{
 		float dist,x2,y2;
 		x2=pow(x-B.x,2);
@@ -34,11 +37,11 @@ class ponto
 	{
 		do
 		{
-		    ponto p1,p2;
-		    p1.obtemponto("A");
-		    p2.obtemponto("B");
-		    p1.mostraponto("A");
-		    p2.mostraponto("B");
+		    Ponto p1,p2;
+		    p1.obtemPonto("A");
+		    p2.obtemPonto("B");
+		    p1.mostraPonto("A");
+		    p2.mostraPonto("B");
 		    float distancia=p1.distaAB(p2);
 		    cout<<"Distancia de A ate B é :";
 		    cout<<distancia<<endl;
