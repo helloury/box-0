@@ -3,21 +3,20 @@
 
 using namespace std;
 
-struct ponto
+class ponto
 {
-	double x,y; 
+	public:
+	float x,y; 
 	void obtemponto(string msg);
 	void mostraponto(string msg);
-	double distanciaAB(class ponto &B);
-}
-{
+	float distaAB(class ponto &B);
+};
 	void ponto::obtemponto(string msg)
 	{
 	    cout<<"Digite as coordenadas";
 	    cout<<"X e Y do ponto "<<msg<<endl;
 	    cin>>x>>y;
 	}
-	distancia=sqrt(pow(ponto.ax-ponto.bx,2)+pow(ponto.ay-ponto.by,2));
 	void mostrarponto(string msg)
 	{
 		cout<<"Coordenadas do ponto"<<msg<<endl;
@@ -33,13 +32,17 @@ struct ponto
 	}
 	int main()
 	{
-		ponto p1,p2;
-		p1.obtemponto("A");
-		p2.obtemponto("B");
-		p1.mostraponto("A");
-		p2.mostraponto("B");
-		float distancia=p1.distaAB(p2);
-		cout<<"Distancia de A ate B é :";
-		cout<<distancia<<endl;
+		do
+		{
+		    ponto p1,p2;
+		    p1.obtemponto("A");
+		    p2.obtemponto("B");
+		    p1.mostraponto("A");
+		    p2.mostraponto("B");
+		    float distancia=p1.distaAB(p2);
+		    cout<<"Distancia de A ate B é :";
+		    cout<<distancia<<endl;
+		}
+		while(x==0);
 		return 0;
 	}	
