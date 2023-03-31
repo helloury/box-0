@@ -1,14 +1,13 @@
 #include <iostream>
 #include <cmath>
 
-
 using namespace std;
 
 class Ponto
 {
-	public:
-	double x,y; 
 	private:
+	double x,y; 
+	public:
 	void obtemPonto(string msg);
 	void mostraPonto(string msg);
 	float distaAB(class Ponto &B);
@@ -34,6 +33,7 @@ class Ponto
 	}
 	int main()
 	{
+		string x;
 		do
 		{
 		    Ponto p1,p2;
@@ -44,7 +44,9 @@ class Ponto
 		    float distancia=p1.distaAB(p2);
 		    cout<<"Distancia de A ate B é :";
 		    cout<<distancia<<endl;
+		    cout<<"Continuar ? S/s"<<endl;
+		    cin>>continuar;
 		}
-		while(x==0);
+		while(continuar=='S'||continuar=='s');
 		return 0;
 	}	
