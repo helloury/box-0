@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+#ifndef Retangulo.h
+#define Retangulo.h
+
+class Retangulo 
+{
+	public:
+	Retangulo();
+	bool setcompr(double);
+	bool setlarg(double);
+	double getcompr
+	double getlarg
+	private:
+	double compr,larg;
+};
+#endif /*Retangulo*/
+
+//Retangulo.cpp
+#include "Retangulo.h"
+Retangulo::Retangulo()
+{
+	bool Retangulo::setcompr(double aux)
+	{
+		if(aux<=0)
+		{
+			return false;
+		}
+		compr=aux;
+		return true
+	}
