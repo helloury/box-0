@@ -1,33 +1,95 @@
-#include <iostream>
+//Retangulo.h
 
-using namespace std;
+#ifndef RETANGULO_H_
+#define RETANGULO_H_
 
-#ifndef Retangulo.h
-#define Retangulo.h
-
-class Retangulo 
-{
-	public:
+class Retangulo {
+public:
 	Retangulo();
+	virtual ~Retangulo();
 	bool setcompr(double);
 	bool setlarg(double);
-	double getcompr
-	double getlarg
-	private:
+	double getcompr()const;
+	double getlarg()const;
+	double area()const;
+	double perimetro()const;
+private:
 	double compr,larg;
 };
-#endif /*Retangulo*/
+
+#endif /* RETANGULO_H_ */
 
 //Retangulo.cpp
 #include "Retangulo.h"
-Retangulo::Retangulo()
+
+Retangulo::Retangulo() {
+	// TODO Auto-generated constructor stub
+	compr= 0.0;
+	larg= 0.0;
+}
+
+Retangulo::~Retangulo() {
+	// TODO Auto-generated destructor stub
+}
+bool Retangulo::setcompr(double aux)
 {
-	bool Retangulo::setcompr(double aux)
+	if(aux<=0.0)
 	{
-		if(aux<=0)
-		{
-			return false;
-		}
-		compr=aux;
-		return true
+		return false;
 	}
+	compr=aux;
+	return true;
+}
+bool Retangulo::setlarg(double aux)
+{
+	if(aux<=0.0)
+	{
+		return false;
+	}
+	larg=aux;
+	return true;
+}
+double Retangulo::area()const
+{
+	return compr*larg;
+}
+double Retangulo::perimetro()const
+{
+	return 2*(compr+larg);
+}
+double Retangulo::getcompr()const
+{
+	return compr;
+}
+double Retangulo::getlarg()const
+{
+	return larg;
+}
+
+//Int main
+#include <iostream>
+using namespace std;
+#include "Retangulo.h"
+
+int main() {
+	Retangulo objeto;
+	double valor;
+	do 
+	{
+        cout<<"Largura: ";
+	    cin>>valor;
+	}
+	while(objeto.setlarg(valor)==false);
+	do
+	{
+		cout<<"Comprimento: ";
+		cin>>valor;
+	}
+	while(objeto.setcompr(valor)==false);
+	cout<<"Area = "<<objeto.perimetro()<<endl;
+	cout<<"Perimetro = "<<objeto.perimetro()<<endl;
+	cout<<" Digite 0 para encerrar ou 1 para continuar"<<endl;
+	}
+	
+	return 0;
+}
