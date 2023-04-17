@@ -1,70 +1,97 @@
-#ifndef ESFERA_H_
+#ifndef CILINDRO_H_
+#define CILINDRO_H_
 
-#define ESFERA_H_
-
-class Esfera {
-private:
-double raio; // > 0.0
+class Cilindro {
 public:
-Esfera();
-bool setRaio(double);
-double getRaio()const;
-double calculaAreaTotal()const;
-double calculaVolume()const;
+	Cilindro();
+	virtual ~Cilindro();
+	private:
+	double raio; // > 0.0
+	public:
+	bool setRaio(double);
+	bool setAltura(double);
+	double getRaio()const;
+	double getAltura()const;
+	double calculaAreaLateral()const;
+	double calculaAreaTotal()const;
+	double calculaVolume()const;
 };
-#endif /* ESFERA_H_ 
+
+#endif /* CILINDRO_H_ */
 
 
-*/#include "Cilindro.h"
+#include "Cilindro.h"
 
-Cilindro::Cilindro(){
-raio = 1.0;
+Cilindro::Cilindro() {
+	// TODO Auto-generated constructor stub
+	Raio = 1.0;
+}
+
+Cilindro::~Cilindro() {
+	// TODO Auto-generated destructor stub
 }
 bool Cilindro::setRaio(double aux){
 if(aux <= 0.0) return false;
-raio = aux;
+Raio = aux;
 return true;
 }
-double Cilindro::getRaio()const{
-return raio;
+bool Cilindro::setAltura(double aux){
+	if(aux<=0.0) return false;
+	Altura=aux;
+	return true;
 }
+double Cilindro::getRaio()const{
+return Raio;
+}
+double Cilindro::getAltura()const{
+	return Altura;
+}
+
 double Cilindro::calculaArealateral()const{
-return (2*3.14*raio*altura);
+return (2*3.14*Raio*Altura);
 }
 
 double Cilindro::calculaAreaTotal()const{
-return (2*3.14*raio*(altura+raio));
+return (2*3.14*Raio*(Altura+Raio));
 }
 double Cilindro::calculaVolume()const{
-return (3.14*raio*raio*altura);
+return (3.14*Raio*Raio*Altura);
 }
-
 
 
 #ifndef TESTACILINDRO_H_
 #define TESTACILINDRO_H_
 #include "Cilindro.h"
 #include <iostream>
-using namespace std;
+
 class TestaCilindro {
-private:
-Esfera obj;
 public:
-void menu();
+	TestaCilindro();
+	virtual ~TestaCilindro();
+	void menu();
+private:
+Cilindro obj;
 };
-#endif /* TESTACILInDRO_H_ */
+
+#endif /* TESTACILINDRO_H_ */
 
 
-#testaCilindro.h
+#include "TestaCilindro.h"
+
+TestaCilindro::TestaCilindro() {
+	// TODO Auto-generated constructor stub
+
+}
+
+TestaCilindro::~TestaCilindro() {
+	// TODO Auto-generated destructor stub
+}
 double valor;
 do{
 cout << "Digite:\n";
-cout << "1 - Definir o valor do raio da esfera.\
-n";
-cout << "2 - Mostrar o valor do raio da esfera.\
-n";
-cout << "3 - Calcular a área da casca da esfera.\
-n";
+cout << "1 - Definir o valor do raio da .\n";
+cout << "2 - Mostrar o valor do raio da .\n";
+cout << "3 - Calcular a área da casca da .\n";
 cout << "4 - Calcular o volume da esfera.\n";
 cout << "5 - Encerrar.\n";
 cin >> op;
@@ -77,6 +104,7 @@ cin >> valor;
 case 2: // mostrar raio
 cout << "Raio da esfera é " << obj.getRaio() << endl;
 break;
+case  : //
 case 3: // área
 cout << "Área da casca da esfera é " << obj.calculaAreaTotal() << endl;
 break;
@@ -91,15 +119,3 @@ default: // opções inválidas
 }
 }while(op != 5);
 }
-
-
-
-using namespace std;
-#include
-"TestaEsfera.h"
-int main() {
-TestaEsfera obj;
-obj.menu();
-return 0;
-}
-
