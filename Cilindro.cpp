@@ -1,13 +1,13 @@
+//Cilindro.h
 #ifndef CILINDRO_H_
 #define CILINDRO_H_
 
 class Cilindro {
-public:
+	private:
+	double Raio,Altura;
+	public:
 	Cilindro();
 	virtual ~Cilindro();
-	private:
-	double raio; // > 0.0
-	public:
 	bool setRaio(double);
 	bool setAltura(double);
 	double getRaio()const;
@@ -18,13 +18,14 @@ public:
 };
 
 #endif /* CILINDRO_H_ */
-
-
+ 
+//Cilindro.cpp
 #include "Cilindro.h"
 
 Cilindro::Cilindro() {
 	// TODO Auto-generated constructor stub
-	Raio = 1.0;
+	Raio= 1.0;
+	Altura = 1.0;
 }
 
 Cilindro::~Cilindro() {
@@ -47,7 +48,7 @@ double Cilindro::getAltura()const{
 	return Altura;
 }
 
-double Cilindro::calculaArealateral()const{
+double Cilindro::calculaAreaLateral()const{
 return (2*3.14*Raio*Altura);
 }
 
@@ -58,7 +59,7 @@ double Cilindro::calculaVolume()const{
 return (3.14*Raio*Raio*Altura);
 }
 
-
+//TestaCilindro.h
 #ifndef TESTACILINDRO_H_
 #define TESTACILINDRO_H_
 #include "Cilindro.h"
@@ -75,9 +76,10 @@ Cilindro obj;
 
 #endif /* TESTACILINDRO_H_ */
 
-
+//TestaCilindro.cpp
 #include "TestaCilindro.h"
-
+void TestaCilindro::menu(){
+	int op;
 TestaCilindro::TestaCilindro() {
 	// TODO Auto-generated constructor stub
 
@@ -89,11 +91,14 @@ TestaCilindro::~TestaCilindro() {
 double valor;
 do{
 cout << "Digite:\n";
-cout << "1 - Definir o valor do raio da .\n";
-cout << "2 - Mostrar o valor do raio da .\n";
-cout << "3 - Calcular a área da casca da .\n";
-cout << "4 - Calcular o volume da esfera.\n";
-cout << "5 - Encerrar.\n";
+cout << "1 - Definir o valor do raio do Cilindro .\n";
+cout << "2 - Definir o valor da altura do Cilindro . \n";
+cout << "3 - Mostrar o valor do raio do Cilindro .\n";
+cout << "4 - Mostrar a altura do Cilindro . \n";
+cout << "5 - Calcular a área lateral do Cilindro .\n";
+cout<<  "6 - Calcular a area total do Cilindro .\n";
+cout << "7 - Calcular o volume do Cilindro.\n";
+cout << "8 - Encerrar.\n";
 cin >> op;
 switch(op){
 case 1: // definir raio
@@ -101,21 +106,41 @@ do{
 cout << "Raio: ";
 cin >> valor;
 }while(!obj.setRaio(valor));
-case 2: // mostrar raio
-cout << "Raio da esfera é " << obj.getRaio() << endl;
+case 2: //definir altura
+	do{
+		cout<<"Altura: ";
+		cin>>valor;
+	}while(obj.setAltura(valor)==false)
+case 3: // mostrar raio
+cout << "Raio do Cilindro é " << obj.getRaio() << endl;
 break;
-case  : //
-case 3: // área
-cout << "Área da casca da esfera é " << obj.calculaAreaTotal() << endl;
+case  4: //mostrar altura
+	cout<< "Altura do cilindro é "<<obj.getAltura()<<endl;
+case  5: //area lateral
+	cout<<"Area lateral do cilindro é "<<obj.calculaAreaLateral()<<endl;
+case 6: // áreatotal
+cout << "Área total do Cilindro é " << obj.calculaAreaTotal() << endl;
 break;
-case 4: // volume
-cout << "Volume da esfera é " << obj.calculaVolume() << endl;
+case 7: // volume
+cout << "Volume do Cilindro é " << obj.calculaVolume() << endl;
 break;
-case 5: // encerrar
+case 8: // encerrar
 cout << "Programa encerrando!!!\n";
 break;
 default: // opções inválidas
  cout << "Opção inválida!!!" << endl;
 }
-}while(op != 5);
+}while(op != 8);
 }
+
+//Int man cpp
+#include <iostream>
+#include "TestaCilindro.h"
+using namespace std;
+
+int main() {
+	TestaCilindro obj;
+	obj.menu();
+	return 0;
+}
+
