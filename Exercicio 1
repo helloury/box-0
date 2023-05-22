@@ -1,0 +1,101 @@
+#include <iostream>
+
+class NumerosFracionarios {
+private:
+    int a;
+    int b;
+
+    int mdc(int x, int y) {
+        if (y == 0)
+            return x;
+        return mdc(y, x % y);
+    }
+
+    void reduz() {
+        int divisor = mdc(a, b);
+        a /= divisor;
+        b /= divisor;
+        if (b < 0) {
+            a *= -1;
+            b *= -1;
+        }
+    }
+
+public:
+    NumerosFracionarios(int numerador = 0, int denominador = 1) : a(numerador), b(denominador) {
+        reduz();
+    }
+
+    int getA() const {
+        return a;
+    }
+
+    int getB() const {
+        return b;
+    }
+
+    void setAB(int numerador, int denominador) {
+        a = numerador;
+        b = denominador;
+        reduz();
+    }
+
+    NumerosFracionarios soma(const NumerosFracionarios& outro) const {
+        int numerador = a * outro.b + b * outro.a;
+        int denominador = b * outro.b;
+        return NumerosFracionarios(numerador, denominador);
+    }
+
+    NumerosFracionarios subtracao(const NumerosFracionarios& outro) const {
+        int numerador = a * outro.b - b * outro.a;
+        int denominador = b * outro.b;
+        return NumerosFracionarios(numerador, denominador);
+    }
+
+    NumerosFracionarios multiplicacao(const NumerosFracionarios& outro) const {
+        int numerador = a * outro.a;
+        int denominador = b * outro.b;
+        return NumerosFracionarios(numerador, denominador);
+    }
+
+    NumerosFracionarios divisao(const NumerosFracionarios& outro) const {
+        int numerador = a * outro.b;
+        int denominador = b * outro.a;
+        return NumerosFracionarios(numerador, denominador);
+    }
+
+    bool maiorQue(const NumerosFracionarios& outro) const {
+        return (a * outro.b) > (b * outro.a);
+    }
+
+    bool menorQue(const NumerosFracionarios& outro) const {
+        return (a * outro.b) < (b * outro.a);
+    }
+
+    bool igualA(const NumerosFracionarios& outro) const {
+        return (a * outro.b) == (b * outro.a);
+    }
+};
+
+class TestaFracionarios {
+public:
+    static void imprimeFracionario(const NumerosFracionarios& fracionario) {
+        std::cout << fracionario.getA() << "/" << fracionario.getB();
+    }
+
+    static void imprimeDecimal(const NumerosFracionarios& fracionario) {
+        double decimal = static_cast<double>(fracionario.getA()) / fracionario.getB();
+        std::cout << decimal;
+    }
+
+    static void menu() {
+        NumerosFracionarios numero1, numero2, resultado;
+        int escolha;
+
+        do {
+            std::cout << "Escolha uma opção:\n";
+            std::cout << "1. Somar\n";
+            std::cout << "2. Subtrair\n";
+            std::cout << "3. Multiplicar\n";
+            std::cout << "4. Dividir\n";
+            std::cout <<
