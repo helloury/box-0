@@ -1,0 +1,101 @@
+
+#ifndef NUMEROSFRACIONARIOS_H_
+#define NUMEROSFRACIONARIOS_H_
+
+class NumerosFracionarios {
+private: int a, b;
+public:
+	NumerosFracionarios();
+	virtual ~NumerosFracionarios();
+	void Reduz()const;
+	int getA()const;
+	int getB()const;
+	int getAB()const;
+	
+};
+
+#endif /* NUMEROSFRACIONARIOS_H_ */
+
+#ifndef NUMEROSFRACIONARIOS_H_
+
+
+
+#include "NumerosFracionarios.h"
+
+NumerosFracionarios::NumerosFracionarios() {
+	// TODO Auto-generated constructor stub
+
+}
+
+NumerosFracionarios::~NumerosFracionarios() {
+	// TODO Auto-generated destructor stub
+}
+void NumerosFracionarios::(int numerador=0,int denominador=1): a(numerador),b(denominador){
+	 reduz();
+}
+int NumerosFracionarios::getA()const{
+	return a;
+}
+int NUmerosFracionarios::getB()const{
+	return b;
+}
+void NumerosFracionarios::setAB(int numerador,int denominador){
+	a=numerador;
+	b=denominador;
+	reduz();
+}
+double NumerosFracionarios::soma(NumerosFracionarios and outro)const{
+	 int numerador = a * outro.b + b * outro.a;
+	 int denominador = b * outro.b;
+	 return NumerosFracionarios(numerador, denominador);
+}
+double NumerosFracionarios multiplicacao(const NumerosFracionarios& outro) const {
+      int numerador = a * outro.a;
+      int denominador = b * outro.b;
+      return NumerosFracionarios(numerador, denominador);
+}
+double NumerosFracionarios divisao(const NumerosFracionarios& outro) const {
+             int numerador = a * outro.b;
+             int denominador = b * outro.a;
+             return NumerosFracionarios(numerador, denominador);
+}
+bool maiorQue(const NumerosFracionarios and outro) const {
+        return (a * outro.b) > (b * outro.a);
+}
+bool menorQue(const NumerosFracionarios and outro) const {
+        return (a * outro.b) < (b * outro.a);
+}
+bool igualA(const NumerosFracionarios and outro) const {
+        return (a * outro.b) == (b * outro.a);
+}
+
+
+#ifndef TESTAFRACIONARIOS_H_
+#define TESTAFRACIONARIOS_H_
+
+class TestaFracionarios {
+public:
+	TestaFracionarios();
+	virtual ~TestaFracionarios();
+};
+
+#endif /* TESTAFRACIONARIOS_H_ */
+
+
+
+#include "TestaFracionarios.h"
+
+TestaFracionarios::TestaFracionarios() {
+	// TODO Auto-generated constructor stub
+
+}
+
+TestaFracionarios::~TestaFracionarios() {
+	// TODO Auto-generated destructor stub
+}
+
+
+
+
+
+
