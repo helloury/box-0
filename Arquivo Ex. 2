@@ -1,0 +1,53 @@
+//data.h
+#ifndef DATA_H_
+#define DATA_H_
+
+class Data {
+public:
+	Data();
+	virtual ~Data();
+};
+
+#endif /* DATA_H_ */
+
+
+
+//data.cpp
+#include "Data.h"
+
+Data::Data() {
+	// TODO Auto-generated constructor stub
+
+}
+Data::~Data() {
+	// TODO Auto-generated destructor stub
+}
+
+
+//testadata.h
+#ifndef TESTADATA_H_
+#define TESTADATA_H_
+
+class TestaData {
+public:
+	TestaData();
+	virtual ~TestaData();
+};
+
+#endif /* TESTADATA_H_ */
+
+
+//testadata.cpp
+#include "TestaData.h"
+
+TestaData::TestaData() {
+	// TODO Auto-generated constructor stub
+
+}
+
+TestaData::~TestaData() {
+	// TODO Auto-generated destructor stub
+}
+
+//int man
+
