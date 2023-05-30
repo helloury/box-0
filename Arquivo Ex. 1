@@ -1,4 +1,4 @@
-
+//Numeros fracionarios.h
 #ifndef NUMEROSFRACIONARIOS_H_
 #define NUMEROSFRACIONARIOS_H_
 
@@ -19,7 +19,7 @@ public:
 #ifndef NUMEROSFRACIONARIOS_H_
 
 
-
+//numerosfracionarios.cpp
 #include "NumerosFracionarios.h"
 
 NumerosFracionarios::NumerosFracionarios() {
@@ -69,20 +69,22 @@ bool igualA(const NumerosFracionarios and outro) const {
         return (a * outro.b) == (b * outro.a);
 }
 
-
+//testafracionarios.h
 #ifndef TESTAFRACIONARIOS_H_
 #define TESTAFRACIONARIOS_H_
+#include "NumerosFracionarios.h"
 
 class TestaFracionarios {
 public:
 	TestaFracionarios();
-	virtual ~TestaFracionarios();
+	virtual ~TestaFracionarios()
+	void menu();
 };
 
 #endif /* TESTAFRACIONARIOS_H_ */
 
 
-
+//testafracionarios.cpp
 #include "TestaFracionarios.h"
 
 TestaFracionarios::TestaFracionarios() {
@@ -93,7 +95,29 @@ TestaFracionarios::TestaFracionarios() {
 TestaFracionarios::~TestaFracionarios() {
 	// TODO Auto-generated destructor stub
 }
+void imprimeFracionario(const NumerosFracionarios& fracionario) {
+        std::cout << fracionario.getA() << "/" << fracionario.getB();
+    }
 
+ void imprimeDecimal(const NumerosFracionarios& fracionario) {
+        double decimal = double(fracionario.getA()) / fracionario.getB();
+        std::cout << decimal;
+    }
+     NumerosFracionarios numero1, numero2, resultado;
+        int escolha;
+
+        do {
+            std::cout << "Escolha uma opção:\n";
+            std::cout << "1. Somar\n";
+            std::cout << "2. Subtrair\n";
+            std::cout << "3. Multiplicar\n";
+            std::cout << "4. Dividir\n";
+            std::cout << "5. Maior que\n;
+	    std::cout << "6. Menor que\n;
+	    std::cout << "7. Se é igual a\n;
+
+
+//int man
 
 
 
