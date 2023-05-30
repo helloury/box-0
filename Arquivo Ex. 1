@@ -8,11 +8,16 @@ public:
 	NumerosFracionarios();
 	virtual ~NumerosFracionarios();
 	void Reduz()const;
-	int getA()const;
-	int getB()const;
-	int getAB()const;
-	
-};
+	bool getA(int);
+	bool getB(int);
+	void getAB()const;
+	double soma()const;
+	double divisao()const;
+	double multiplicaçao()const;
+	bool MaiorQue;
+	bool MenorQue;
+	bool IgualA;
+	};
 
 #endif /* NUMEROSFRACIONARIOS_H_ */
 
@@ -44,17 +49,22 @@ void NumerosFracionarios::setAB(int numerador,int denominador){
 	b=denominador;
 	reduz();
 }
-double NumerosFracionarios::soma(NumerosFracionarios and outro)const{
+double NumerosFracionarios::soma(NumerosFracionarios& outro)const{
 	 int numerador = a * outro.b + b * outro.a;
 	 int denominador = b * outro.b;
 	 return NumerosFracionarios(numerador, denominador);
 }
-double NumerosFracionarios multiplicacao(const NumerosFracionarios& outro) const {
+double NumerosFracionarios::multiplicacao(const NumerosFracionarios& outro) const {
       int numerador = a * outro.a;
       int denominador = b * outro.b;
       return NumerosFracionarios(numerador, denominador);
 }
-double NumerosFracionarios divisao(const NumerosFracionarios& outro) const {
+Double NumerosFracionarios::subtracao(const NumerosFracionarios& outro) const {
+        int numerador = a - outro.a;
+        int denominador = b - outro.b;
+      return NumerosFracionarios(numerador, denominador);
+}
+double NumerosFracionarios::divisao(const NumerosFracionarios& outro) const {
              int numerador = a * outro.b;
              int denominador = b * outro.a;
              return NumerosFracionarios(numerador, denominador);
@@ -72,6 +82,7 @@ bool igualA(const NumerosFracionarios and outro) const {
 //testafracionarios.h
 #ifndef TESTAFRACIONARIOS_H_
 #define TESTAFRACIONARIOS_H_
+#include <iostream>
 #include "NumerosFracionarios.h"
 
 class TestaFracionarios {
@@ -79,6 +90,8 @@ public:
 	TestaFracionarios();
 	virtual ~TestaFracionarios()
 	void menu();
+private: 
+Fracionarios obj;
 };
 
 #endif /* TESTAFRACIONARIOS_H_ */
@@ -86,39 +99,72 @@ public:
 
 //testafracionarios.cpp
 #include "TestaFracionarios.h"
+void TestaFracionario::menu(){
+int op;
 
 TestaFracionarios::TestaFracionarios() {
 	// TODO Auto-generated constructor stub
 
 }
-
 TestaFracionarios::~TestaFracionarios() {
 	// TODO Auto-generated destructor stub
 }
 void imprimeFracionario(const NumerosFracionarios& fracionario) {
-        std::cout << fracionario.getA() << "/" << fracionario.getB();
+        cout << fracionario.getA() << "/" << fracionario.getB();
     }
-
  void imprimeDecimal(const NumerosFracionarios& fracionario) {
         double decimal = double(fracionario.getA()) / fracionario.getB();
-        std::cout << decimal;
+        cout << decimal;
     }
-     NumerosFracionarios numero1, numero2, resultado;
-        int escolha;
-
+   double valor;
         do {
-            std::cout << "Escolha uma opção:\n";
-            std::cout << "1. Somar\n";
-            std::cout << "2. Subtrair\n";
-            std::cout << "3. Multiplicar\n";
-            std::cout << "4. Dividir\n";
-            std::cout << "5. Maior que\n;
-	    std::cout << "6. Menor que\n;
-	    std::cout << "7. Se é igual a\n;
-
-
+            cout << "Escolha uma opção:\n";
+            cout << "1. Somar\n";
+            cout << "2. Subtrair\n";
+            cout << "3. Multiplicar\n";
+            cout << "4. Dividir\n";
+            cout << "5. Comparar\n";
+	    cout << "6. Manipular atributos\n";
+	    cout << "7. Encerrar\n"
+	    }
+cin >> Op;
+switch(Op){
+case 1:
+do{
+cout << A soma dos numeros : ";
+cin >> valor;
+}while(!obj.soma(valor));
+case 2: 
+	do{
+		cout<<"A subtraçao dos numeros:  ";
+		cin>>valor;
+	}while(obj.subtracao(valor)==false)
+case 3: 
+         cout << " A multiplicaçao dos numeros: " << obj.multiplicaçao() << endl;
+break;
+case  4:
+	cout << "A divisao dos numeros:  "<< obj.divisao() << endl;
+	break;
+case  5: 
+	cout << " Comparaçao dos numeros: "<< obj.comparaçao() << endl;
+	break;
+case 6: 
+        cout << "Manipular atributos" << obj.setAB() << endl;
+break;
+case 7:
+break;
+}
+	  
 //int man
+#include <iostream>
+#include "TestaFracionarios.h"
+using namespace std;
 
+int main() {
+	TestaFracionarios obj;
+	obj.menu();
+	return 0;
+}
 
 
 
