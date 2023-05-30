@@ -1,11 +1,21 @@
 //data.h
 #ifndef DATA_H_
 #define DATA_H_
+#include <iostream>
+#include <stdexcept>
+#include <ctime>
 
 class Data {
+private:
+        int dia;
+        int mes;
+        int ano;
 public:
 	Data();
 	virtual ~Data();
+	getdata
+	setdata
+	validadata
 };
 
 #endif /* DATA_H_ */
@@ -22,6 +32,55 @@ Data::Data() {
 Data::~Data() {
 	// TODO Auto-generated destructor stub
 }
+  bool setData(int* inputDia, int* inputMes, int* inputAno) {
+        if (validaData(*inputDia, *inputMes, *inputAno)) {
+            dia = *inputDia;
+            mes = *inputMes;
+            ano = *inputAno;
+            return true;
+        }
+        return false;
+    }
+     void getData(int* outputDia, int* outputMes, int* outputAno) const {
+        *outputDia = dia;
+        *outputMes = mes;
+        *outputAno = ano;
+    }
+    bool validaData() const {
+        // Verificar se a data é válida
+        // Código de validação aqui...
+
+        return true; // Substituir pela lógica de validação real
+    }
+    std::string determinaDiaSemana() const {
+        // Determinar o dia da semana da data
+        // Código para determinar o dia da semana aqui...
+
+        return "Segunda-feira"; // Substituir pelo dia da semana real
+    }
+      long long calculaDiasEntreDatas(const Data& outraData) const {
+        std::tm tmData1 = {0};
+        tmData1.tm_year = ano - 1900;
+        tmData1.tm_mon = mes - 1;
+        tmData1.tm_mday = dia;
+
+        std::tm tmData2 = {0};
+        tmData2.tm_year = outraData.ano - 1900;
+        tmData2.tm_mon = outraData.mes - 1;
+        tmData2.tm_mday = outraData.dia;
+
+        std::time_t time1 = std::mktime(&tmData1);
+        std::time_t time2 = std::mktime(&tmData2);
+
+        if (time1 == -1 || time2 == -1)
+            throw std::runtime_error("Erro ao calcular dias entre datas");
+
+        const int SECONDS_PER_DAY = 60 * 60 * 24;
+        long long diff = std::difftime(time2, time1);
+        return diff / SECONDS_PER_DAY;
+    }
+};
+
 
 
 //testadata.h
@@ -32,6 +91,9 @@ class TestaData {
 public:
 	TestaData();
 	virtual ~TestaData();
+	void menu();
+private:
+       
 };
 
 #endif /* TESTADATA_H_ */
@@ -48,6 +110,27 @@ TestaData::TestaData() {
 TestaData::~TestaData() {
 	// TODO Auto-generated destructor stub
 }
+    void solicitaData(Data& data) {
+        int dia, mes, ano;
+        std::cout << "Digite o dia: ";
+        std::cin >> dia;
+        std::cout << "Digite o mês: ";
+        std::cin >> mes;
+        std::cout << "Digite o ano: ";
+        std::cin >> ano;
+
+        if (!data.setData(&dia, &mes, &ano))
+            throw std::runtime_error("Data inválida");
+
+        std::cout << "Data inserida: " << dia << "/" << mes << "/" << ano << std::endl;
+        std::cout << "Dia da semana: " << data.determinaDiaSemana() << std::endl;
+    }
+     void mostraData(const Data& data) {
+        int dia, mes, ano;
+        data.getData(&dia, &mes, &ano);
+
+        std::cout << "Data no formato dia/mês/ano: " << dia << "/" << mes << "/" << ano << std::endl;
+        std::cout << "Data no formato cidade: Goiânia, " << dia << " de ";
 
 //int man
 
