@@ -13,9 +13,11 @@ private:
 public:
 	Data();
 	virtual ~Data();
-	getdata
-	setdata
-	validadata
+	void getdata(int);
+	bool setdata(double);
+	bool validadata(double);
+	string determinaDiaSemana()const;
+	long long calculaDiasEntreDatas()const;
 };
 
 #endif /* DATA_H_ */
@@ -52,14 +54,14 @@ Data::~Data() {
 
         return true; // Substituir pela lógica de validação real
     }
-    std::string determinaDiaSemana() const {
+    string determinaDiaSemana() const {
         // Determinar o dia da semana da data
         // Código para determinar o dia da semana aqui...
 
         return "Segunda-feira"; // Substituir pelo dia da semana real
     }
       long long calculaDiasEntreDatas(const Data& outraData) const {
-        std::tm tmData1 = {0};
+        tm tmData1 = {0};
         tmData1.tm_year = ano - 1900;
         tmData1.tm_mon = mes - 1;
         tmData1.tm_mday = dia;
@@ -69,11 +71,11 @@ Data::~Data() {
         tmData2.tm_mon = outraData.mes - 1;
         tmData2.tm_mday = outraData.dia;
 
-        std::time_t time1 = std::mktime(&tmData1);
-        std::time_t time2 = std::mktime(&tmData2);
+        time_t time1 = mktime(&tmData1);
+        time_t time2 = mktime(&tmData2);
 
         if (time1 == -1 || time2 == -1)
-            throw std::runtime_error("Erro ao calcular dias entre datas");
+            throw runtime_error("Erro ao calcular dias entre datas");
 
         const int SECONDS_PER_DAY = 60 * 60 * 24;
         long long diff = std::difftime(time2, time1);
@@ -86,12 +88,12 @@ Data::~Data() {
 //testadata.h
 #ifndef TESTADATA_H_
 #define TESTADATA_H_
+#include "Data.h"
 
 class TestaData {
 public:
 	TestaData();
 	virtual ~TestaData();
-	void menu();
 private:
        
 };
@@ -112,25 +114,94 @@ TestaData::~TestaData() {
 }
     void solicitaData(Data& data) {
         int dia, mes, ano;
-        std::cout << "Digite o dia: ";
-        std::cin >> dia;
-        std::cout << "Digite o mês: ";
-        std::cin >> mes;
-        std::cout << "Digite o ano: ";
-        std::cin >> ano;
+        cout << "Digite o dia: ";
+        cin >> dia;
+        cout << "Digite o mês: ";
+        cin >> mes;
+        cout << "Digite o ano: ";
+        cin >> ano;
 
         if (!data.setData(&dia, &mes, &ano))
             throw std::runtime_error("Data inválida");
 
-        std::cout << "Data inserida: " << dia << "/" << mes << "/" << ano << std::endl;
-        std::cout << "Dia da semana: " << data.determinaDiaSemana() << std::endl;
+        cout << "Data inserida: " << dia << "/" << mes << "/" << ano << endl;
+        cout << "Dia da semana: " << data.determinaDiaSemana() << endl;
     }
      void mostraData(const Data& data) {
         int dia, mes, ano;
         data.getData(&dia, &mes, &ano);
 
-        std::cout << "Data no formato dia/mês/ano: " << dia << "/" << mes << "/" << ano << std::endl;
-        std::cout << "Data no formato cidade: Goiânia, " << dia << " de ";
+        cout << "Data no formato dia/mês/ano: " << dia << "/" << mes << "/" << ano << std::endl;
+        cout << "Data no formato cidade: Goiânia, " << dia << " de ";
+    }
+  switch (mes) {
+            case 1:
+                cout << "janeiro";
+                break;
+            case 2:
+                cout << "fevereiro";
+                break;
+            case 3:
+                cout << "março";
+                break;
+            case 4:
+                cout << "abril";
+                break;
+            case 5:
+                cout << "maio";
+                break;
+            case 6:
+                cout << "junho";
+                break;
+            case 7:
+                cout << "julho";
+                break;
+            case 8:
+                cout << "agosto";
+                break;
+            case 9:
+                cout << "setembro";
+                break;
+            case 10:
+                cout << "outubro";
+                break;
+            case 11:
+                cout << "novembro";
+                break;
+            case 12:
+                scou << "dezembro";
+                break;
+            default:
+	        cout << "Mes invalido";
+                break;
+		
+        }
+	 static void determinaDiasEntreDatas(const Data& data1, const Data& data2) {
+        long long dias = data1.calculaDiasEntreDatas(data2);
+        cout << "Número de dias entre as datas: " << dias << endl;
+    }
+};
 
 //int man
+#include <iostream>
+#include "TestaData.h"
+using namespace std;
+
+int main() {
+	obj data1, data2;
+
+        cout << "Insira a primeira data:\n";
+        cout << solicitaData(obj.data1);
+
+        cout << "\nInsira a segunda data:\n";
+        cout << solicitaData(obj.data2);
+
+        cout << "\nDatas inseridas:\n";
+        cout <<  mostraData(obj.data1);
+        cout << mostraData(obj.data2);
+
+        cout << "\n";
+        cout << determinaDiasEntreDatas(obj.data1,obj.data2);
+	return 0;
+}
 
