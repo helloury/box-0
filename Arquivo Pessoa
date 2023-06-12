@@ -1,0 +1,164 @@
+#include <iostream>
+
+#include <fstream>
+
+#include <string>
+
+using namespace std;
+
+class Pessoa {
+
+public:
+
+    string nome;
+
+    string endereco;
+
+    double peso;
+
+    int idade;
+
+};
+
+class TestaPessoa {
+
+public:
+
+    void cadastrarPessoa(Pessoa pessoa) {
+
+        ofstream arquivo("dados.txt", ios::app);
+
+        if (arquivo.is_open()) {
+
+            arquivo << pessoa.nome << ";" << pessoa.endereco << ";" << pessoa.peso << ";" << pessoa.idade << "\n";
+
+            arquivo.close();
+
+            cout << "Dados da pessoa cadastrados com sucesso!\n";
+
+        } else {
+
+            cout << "Erro ao abrir o arquivo.\n";
+
+        }
+
+    }
+
+    void lerPessoas() {
+
+        ifstream arquivo("dados.txt");
+
+        if (arquivo.is_open()) {
+
+            string linha;
+
+            while (getline(arquivo, linha)) {
+
+                Pessoa pessoa;
+
+                size_t pos = 0;
+
+                string token;
+
+                int atributo = 1;
+
+                while ((pos = linha.find(";")) != string::npos) {
+
+                    token = linha.substr(0, pos);
+
+                    switch (atributo) {
+
+                        case 1:
+
+                            pessoa.nome = token;
+
+                            break;
+
+                        case 2:
+
+                            pessoa.endereco = token;
+
+                            break;
+
+                        case 3:
+
+                            pessoa.peso = stod(token);
+
+                            break;
+
+                        case 4:
+
+                            pessoa.idade = stod(token);
+
+                            break;
+
+                    }
+
+                    linha.erase(0, pos + 1);
+
+                    atributo++;
+
+                }
+
+                cout << "Nome: " << pessoa.nome << endl;
+
+                cout << "Endereço: " << pessoa.endereco << endl;
+
+                cout << "Peso: " << pessoa.peso << endl;
+
+                cout << "Idade: " << pessoa.idade << endl;
+
+                cout << endl;
+
+            }
+
+            arquivo.close();
+
+        } else {
+
+            cout << "Erro ao abrir o arquivo.\n";
+
+        }
+
+    }
+
+};
+
+int main() {
+
+    TestaPessoa testaPessoa;
+
+    // Cadastrar algumas pessoas
+
+    Pessoa pessoa1;
+
+    pessoa1.nome = "João";
+
+    pessoa1.endereco = "Rua A, 123";
+
+    pessoa1.peso = 75.5;
+
+    pessoa1.idade = 30;
+
+    testaPessoa.cadastrarPessoa(pessoa1);
+
+    Pessoa pessoa2;
+
+    pessoa2.nome = "Maria";
+
+    pessoa2.endereco = "Rua B, 456";
+
+    pessoa2.peso = 65.2;
+
+    pessoa2.idade = 25;
+
+    testaPessoa.cadastrarPessoa(pessoa2);
+
+    // Ler e exibir as pessoas cadastradas
+
+    testaPessoa.lerPessoas();
+
+    return 0;
+
+}
+
