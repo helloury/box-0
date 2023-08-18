@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+void CalcM1;
+void CalcM2;
+float CalcM3;
+float CalcM4;
+
+void CalcM1(){
+		CalM1=(n1+n2)/2;
+    }
+
+void CalcM2(n1,n2){
+	CalcM2=(n1+n2)/2;
+	
+float CalcM3(){
+	CalcM3=(n1+n2)/2;
+    return CalcM3;
+
+float CalcM4(n1,n2){
+	CalcM4=(n1+n2)/2;
+	return CalcM4;
+	
+int main()
+{
+	int n1,n2;
+	cout<<"Nota da N1:"/n;
+	cin>>n1;
+	cout<<"Nota da N2:"/n;
+	cin>>n2;
+	cout<<"Exibir a media:"/n;
+	cout<<"Media 1 :"/n;
+	cout<<CalM1;
+	cout<<"Media 2:"/n;
+	cout<<CalM2;
+	cout<<"Media 3:"/n;
+	cout<<CalM3;
+	cout<<"Media 4:"/n;
+	cout<<CalM4;
+	
+}
