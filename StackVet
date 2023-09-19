@@ -1,0 +1,89 @@
+
+#ifndef STACKVET_H_
+#define STACKVET_H_
+
+class StackVet {
+	int N, top;
+	int *V;
+public:
+	StackVet(int N);
+	virtual ~StackVet();
+	bool Push(int T);
+	int Top();
+	bool Pop();
+	bool Empty();
+	bool Full();
+
+};
+
+#endif /* STACKVET_H_ */
+
+/*
+ * StackVet.cpp
+ *
+ *  Created on: 19 de set de 2023
+ *      Author: puc
+ */
+
+#include "StackVet.h"
+
+StackVet::StackVet(int N) {
+	// TODO Auto-generated constructor stub
+
+	top=0;
+	V=new int[N];
+	this->N=N;
+}
+
+StackVet::~StackVet() {
+	// TODO Auto-generated destructor stub
+	delete[]V;
+}
+bool StackVet::Push(int t)
+{
+	if(top < N) 
+	{
+		V[top]= t;
+		top++;
+		return true;
+	}
+	return false;
+}
+int StackVet::Top()
+{
+	if(top>0)
+	{
+		return V[top-1];
+	}
+}
+bool StackVet::Pop()
+{
+	if(top>0)
+	{
+		top--;
+		return true;
+	}
+	return false;
+}
+bool StackVet::Empty()
+{
+	return (top==0);
+}
+bool StackVet::Full()
+{
+	return (top==n);
+}
+
+#include <iostream>
+#include <StackVet.cpp>
+
+using namespace std;
+
+int main() {
+	StackVet P(50);
+	StackVet P1(30);
+	if(!P)
+	
+	return 0;
+}
+
