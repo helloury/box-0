@@ -1,1 +1,72 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+   
+class QueueVet {
+	unsigned int N, Head, tail;
+	int *V;
+public:
+	QueueVet(unsigned int N);
+	virtual ~QueueVet();
+	bool Push(int T);
+	int Front();
+	bool Pop();
+	bool Empty();
+	bool Full();
+	void Clear();
+};
+QueueVet::QueueVet(unsigned int n)
+{
+    V=new int[n];
+    N=n;
+    Head=tail=0;
+}
+QueueVet::~QueueVet()
+{
+    delete[]V;
+}
+bool QueueVet::Push(int t)
+{
+    if(tail+1)%N != Head)
+    {
+        V[tail]=t
+        tail=(tail+1)%N;
+        return true;
+    }
+    return false;
+}
+bool QueueVet::Pop()
+{
+    if(Head==tail){
+        return false;
+    }
+    head=(head+1)%N;
+    return true;
+}
+int QueueVet::front()
+{
+    return V[Head];
+}
+bool QueueVet::Full()
+{
+    return ((tail+1)%N==Head);
+}
+Void QueueVet::Clear()
+{
+    Head=Tail=0;
+}
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    QueueVet queue;
+    
+    
+    return 0;
+}
+
 
