@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+class Node 
+{
+    trem D;
+    Node*Next;
+public:
+    static Node * MontaNode(trem T);
+    static void DesmontaNode(Node*P);
+    
+  static Node*Node :: MontaNode(trem T)
+  {
+      Node*P=New Node;
+      if(P)
+      {
+          P->D=T;
+          P->Next=0;
+      }
+      return P;
+  }
+  static void Node:: DesmontaNode(Node*P)
+  {
+      delete P;
+  }
+  static trem Node:: DesmontaNode(Node*P)
+  {
+      trem T;
+      T=P->D;
+      delete P;
+      return T;
+  }
