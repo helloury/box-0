@@ -78,12 +78,15 @@ bool StackVet::Full()
 #include <StackVet.cpp>
 
 using namespace std;
-
 int main() {
-	StackVet P(50);
-	StackVet P1(30);
-	if(!P)
-	
-	return 0;
-}
+    StackVet stack(5); 
+
+    stack.Push(1);
+    stack.Push(2);
+    stack.Push(3);
+
+    while (!stack.Empty()) {
+        cout << "Top: " << stack.Top()<<endl;
+        stack.Pop();
+    }
 
