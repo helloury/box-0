@@ -1,0 +1,97 @@
+#include <iostream>
+
+using namespace std;
+
+class Queue
+{
+    Node* Head; 
+    Node* Tail;
+    int N;
+    public:
+    Queue();
+    ~Queue();
+    bool Push(trem T);
+    void Pop();
+    Trem Front();
+    int size();
+    void clear();
+    bool Empty();
+};
+Queue::Queue();
+{
+    Head=Tail=0;
+    N=0;
+}
+bool Queue::Push(Trem T)
+{
+    Node*P=Node::MontaNode(T);
+    if(!P)
+    {
+        return false;
+    }
+    if(!Head)
+    {
+        Head=Tail=P;
+    }
+    else
+    {
+        Tail->Next=P;
+        Tail=P;
+    }
+    N++;
+    return true;
+}
+void Queue:: Pop()
+{
+    if(Head)
+    {
+        Node*P=Head;
+        Head=Head->Next;
+        delete P;
+       if(!Head)
+       {
+          Tail=0;
+       }
+      N--;
+    }
+}
+Trem Queue::Front()
+{
+    return Head->D;
+}
+int Queue::size()
+{
+    return N;
+}
+bool Queue:: Empty()
+{
+    return !Head;
+}
+void Queue::clear()
+{
+    while(head)
+    {
+        Node*P=Head;
+        Head=Head->Next;
+        Node::DesmontaNode(P);
+    }
+    Tail=0;
+    N=0;
+}
+
+Queue::~Queue()
+{
+    Node*P;
+    while(Tail)
+    {
+        P=Tail;
+        Tail=Tail->Next;
+        delete P;
+    }
+    
+}
+
+
+
+
+
