@@ -1,0 +1,103 @@
+#include <iostream>
+
+using namespace std;
+
+class Stack 
+{
+    Node* top;
+    int N; 
+public:
+ Stack();
+ ~Stack();
+ bool Push(trem T);
+ void Pop();
+ trem Top();
+ bool Empty();
+ int Size();
+ void Clear();
+};
+Stack::Stack()
+{
+    top=0;
+    N=0;
+}
+Stack::~Stack()
+{
+    Node*P;
+    while(top)
+    {
+        P=top;
+        top=top->Next;
+        delete P;
+    }
+}
+bool Stack:: Push(trem T)
+{
+    Node*P;
+    P=Node::MontaNode(T);
+    if(!P)
+    {
+        return false;
+    }
+    P->Next=top;
+    top=P;
+    N++;
+    return true;
+    
+}
+void Stack::Pop()
+{
+   if(top)
+   {
+       Node*P=top;
+       top=top->next;
+       Node::DesmontaNode(P);
+       N--;
+   }
+}
+trem Stack::Top()
+{
+    return top->D;
+}
+bool Stack::Empty()
+{
+    return !top;
+}
+int size()
+{
+    return N;
+}
+void Stack::Clear()
+[
+    Node*P;
+    while(top)
+    {
+        P=top;
+        top=top->Next;
+        Node::DesmontaNode(P);
+    }
+    N=0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
