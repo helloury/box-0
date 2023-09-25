@@ -27,11 +27,11 @@ QueueVet::~QueueVet()
 {
     delete[]V;
 }
-bool QueueVet::Push(int t)
+bool QueueVet::Push(int T)
 {
     if(tail+1)%N != Head)
     {
-        V[tail]=t
+        V[tail]=T;
         tail=(tail+1)%N;
         return true;
     }
@@ -45,13 +45,16 @@ bool QueueVet::Pop()
     head=(head+1)%N;
     return true;
 }
-int QueueVet::front()
+int QueueVet::Front()
 {
     return V[Head];
 }
 bool QueueVet::Full()
 {
     return ((tail+1)%N==Head);
+}
+bool QueueVet::Empty(){
+    return (head==Tail);
 }
 Void QueueVet::Clear()
 {
@@ -62,11 +65,25 @@ Void QueueVet::Clear()
 
 using namespace std;
 
-int main() {
-    QueueVet queue;
+ cin>>N;
+    QueueVet queue(N);
     
+    for(i=1;i<=N;i++)
+    {
+        if(queue.Push(i))
+        {
+            cout<<"Pushed: "<<i<<endl;
+        }
+        else{
+            cout<<"Cheio";
+        }
+    }
+    cout<<"Mostrar o 1 da fila:"<<queue.Front<<endl;
     
-    return 0;
-}
+    if(!queue.Empty)//Nao pode estar vazia
+    {
+        cout<<"Retirar da fila: "<<queue.Front<<endl;
+        queue.Pop();
+    }
 
 
