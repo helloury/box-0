@@ -1,0 +1,20 @@
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+class Imovel{
+	string endereço;
+	double preco;
+};
+class Novo : Imovel, preco {
+    double adicional;
+};
+class Velho : Imovel, preco {
+	double desconto;
+	
+
+	
+	
+int main{
+	
