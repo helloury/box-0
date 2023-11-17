@@ -1,0 +1,18 @@
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+class Animal{
+	string nome;
+	double peso;
+};
+
+class Peixe : public Animal{
+	string habitat;
+};
+
+class Cachorro : public Animal {
+	string raca;
+	
+};
